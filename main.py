@@ -1,6 +1,6 @@
 import sys
 #Tic-tac-Toe starter code
-#Test: Name
+
 def reset_board():
     board = []
     for i in range(1,10):
@@ -8,7 +8,7 @@ def reset_board():
     return(list(board))
 
 
-#Takes in current game board and prints team positions 
+#Takes in current game board and prints player positions on board
 def print_board(board):
     #since the code above can be any length - we need to set the print to accomodate it
     breakrow = 3
@@ -38,7 +38,7 @@ def check_for_winner(board):
 """
     #TO-DO:
     #Check for diagonal winner
-    ##Determin what else decides a winner
+    ##Determine what else decides a winner
    
             
 def keep_playing():
@@ -57,11 +57,19 @@ def keep_playing():
         reset_board()
         
         
-
+"""
+MAIN GAME LOOP
+"""
 #Game Loop
 game_over = False
 winner = -1
 player_one = input('Would you like to be "X\'s" or "O\'s: '  ).upper()
+player_two = ""
+if (player_one == "X"):
+    player_two = "O"
+else:
+    player_two = "X"
+
 current_board = reset_board()
 
 while (not game_over):
@@ -70,9 +78,21 @@ while (not game_over):
     #make a plan using psuedo code. 
     print_board(current_board)
 
+    #player what position player wants to play at
+    #Print out new coard with player choice 
+    #check if player1 wins
+    pos = int(input("Player 1 what position on board do you want to play on board? "))
+    current_board[pos-1] = player_one
+    print_board(current_board)
+    #player 2 position for play
+    #print board 
+    #check if player 2 wins
+    pos = int(input("Player 2 what position on board do you want to play on board? "))
+    current_board[pos-1] = player_two
+    print_board(current_board)
 
     #keep_playing is called below in the starter code to allow us to see the game loop. Decide as a class if it is needed. 
-    keep_playing()
+    
     if (winner != -1):
         game_over = True
         keep_playing()
