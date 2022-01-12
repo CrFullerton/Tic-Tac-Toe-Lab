@@ -55,15 +55,26 @@ def keep_playing():
         current_board = []
         player_one = input('Would you like to be "X\'s" or "O\'s: '  ).upper()
         reset_board()
-        
-        
+
+#return piece{String} - the player's piece, X or an O
+#TODO
+    #setup return
+    #while loop so it keeps asking until player puts proper piece
+def get_player_piece():
+    piece = input('Would you like to be "X\'s" or "O\'s: '  ).upper()
+    if(piece != "X" or piece != "O"):
+        piece = input('Please learn to read. We need "X\'s" or "O\'s for this game. Do you want X\'s or O\'s? '  ).upper()
+       
+        # \ is the escape charater
+    
 """
 MAIN GAME LOOP
 """
 #Game Loop
 game_over = False
 winner = -1
-player_one = input('Would you like to be "X\'s" or "O\'s: '  ).upper()
+player_one = get_player_piece()
+#input('Would you like to be "X\'s" or "O\'s: '  ).upper()
 player_two = ""
 if (player_one == "X"):
     player_two = "O"
@@ -82,6 +93,7 @@ while (not game_over):
     #Print out new coard with player choice 
     #check if player1 wins
     pos = int(input("Player 1 what position on board do you want to play on board? "))
+    
     current_board[pos-1] = player_one
     print_board(current_board)
     #player 2 position for play
