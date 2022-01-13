@@ -67,16 +67,22 @@ MAIN GAME LOOP
 game_over = False
 winner = -1 #teacks the winner of the game
 player_one = input('Player 1, Would you like to be "X\'s" or "O\'s: '  ).upper()
+if(player_one == "X"):
+    player_two = "O"
+else:
+    player_two = "X"
+
 current_board = reset_board()
 
 while (not game_over):
-    #TO-DO:
-    #complete game loop below
-    #make a plan using psuedo code. 
     print_board(current_board)
-    pos = int(input("Where on the board would you like to play?"))
+    pos = int(input("Player 1, Where on the board would you like to play? "))
     current_board[pos -1] = player_one  
+    
+    
     print_board(current_board)
+    pos = int(input("Player two, Where on the board would you like to play? "))
+    current_board[pos -1] = player_two 
 
     #keep_playing is called below in the starter code to allow us to see the game loop. Decide as a class if it is needed. 
     keep_playing()
